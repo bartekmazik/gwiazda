@@ -1,7 +1,6 @@
 import java.util.regex.Pattern;
 
 public class Gwiazda extends Gwiazdozbior {
-
     public String nazwa;
     public String nazwaKatalogowa;
     public String deklinacja;
@@ -21,7 +20,7 @@ public class Gwiazda extends Gwiazdozbior {
     public Gwiazda(String nazwa, Deklinacja deklinacja, Rektascensja rektascensja, double magnitudo, double odleglosc, double temperatura, double masa) {
         super("Wolarz");
         this.nazwa = Nazwa(nazwa);
-        this.i = i+1;
+        this.i = i + 1;
         this.nazwaKatalogowa = NazwaKatalogowa(nazwa);
         gwiazdy.add(this);
         this.deklinacja = deklinacja.deklinacja;
@@ -33,6 +32,7 @@ public class Gwiazda extends Gwiazdozbior {
         this.temperatura = Temperatura(temperatura);
         this.masa = Masa(masa);
     }
+
     public String Nazwa(String nazwa) {
         if (pattern.matcher(nazwa).matches()) {
             return nazwa;
@@ -40,8 +40,9 @@ public class Gwiazda extends Gwiazdozbior {
             return "Niepoprawna nazwa";
         }
     }
+
     public double AbsolutnaWielkoscGwiazdowa(double magnitudo, double odleglosc) {
-        return magnitudo-5*Math.log10(odleglosc)+5;
+        return magnitudo - 5 * Math.log10(odleglosc) + 5;
     }
 
     public double Masa(double masa) {
@@ -53,12 +54,13 @@ public class Gwiazda extends Gwiazdozbior {
     }
 
     public double Temperatura(double value) {
-        if (value >= 2000) {
+        if (value <= 2000) {
             return value;
         } else {
             throw new IllegalArgumentException("Niepoprawna wartość");
         }
     }
+
     public double Magnitudo(double magnitudo) {
         if (magnitudo >= -26.74 && magnitudo <= 15.00) {
             return magnitudo;
@@ -68,12 +70,120 @@ public class Gwiazda extends Gwiazdozbior {
     }
 
     public String NazwaKatalogowa(String nazwa) {
-        return AlfabetGrecki[i-1] + " " + nazwaGwiazdozbioru;
+        return AlfabetGrecki[i - 1] + " " + nazwaGwiazdozbioru;
     }
+
     public double getParsek() {
-        return odleglosc/3.26156;
+        return odleglosc / 3.26156;
     }
+
     public double getAWG() {
-        return magnitudo-5*Math.log10(getParsek())+5;
+        return magnitudo - 5 * Math.log10(getParsek()) + 5;
     }
 }
+
+
+
+//
+//import os
+//        import re
+//
+//        def zliczanie(dir_name):
+//        directory_names = [os.path.join(dir_name,name) for name in os.listdir(dir_name) if os.path.isdir(os.path.join(dir_name,name))]
+//        pattern = r"\d+"
+//        suma =0
+//
+//        for dirr_name in directory_names:
+//        file_names = [os.path.join(dirr_name,name) for name in os.listdir(dirr_name) if os.path.isfile(os.path.join(dirr_name,name))]
+//        ##print(file_names)
+//        p,k =os.path.split(dirr_name)
+//        print(k)
+//
+//        for file_name in file_names:
+//        p,k =os.path.split(file_name)
+//        with open(file_name) as f:
+//        l=f.read()
+//        txt = ''.join([str(elem) for elem in l])
+//
+//        matches = re.findall(pattern, txt)
+//        print(f"{k}: {len(matches)}")
+//        #matches =([int(el) for el in matches])
+//        suma += sum(map(int,matches))
+//        print()
+//        print(suma)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//        zliczanie("/content/drive/MyDrive/test")
+//
+//
+//
+//
+//
+//        def swapp(dir_name, word:str, new_word:str):
+//        l=[]
+//        after_swapp=''
+//        with open(dir_name,'r+') as f:
+//        txt = f.read()
+//
+//        l=txt.split()
+//        for el in range(len(l)):
+//        if l[el].lower()==word.lower():
+//        if l[el].islower():
+//        l[el] =new_word.lower()
+//        elif l[el].isupper() :
+//        l[el] =new_word.upper()
+//        elif l[el] ==word.capitalize():
+//        l[el] =new_word.capitalize()
+//
+//        after_swapp ="".join([el for el in l])
+//
+//
+//        with open(dir_name, "w") as wr:
+//        wr.write(after_swapp)
+//
+//        #f.write(after_swapp)
+//
+//
+//
+//
+//
+//
+//
+//        swapp("/content/drive/MyDrive/test/biologia/swapp",'ala', 'Damian')
