@@ -72,7 +72,7 @@ public class Gwiazda extends Gwiazdozbior {
     public String NazwaKatalogowa(String nazwa) {
         return AlfabetGrecki[i - 1] + " " + nazwaGwiazdozbioru;
     }
-
+    //zmiana jednostek na parseki
     public double getParsek() {
         return odleglosc / 3.26156;
     }
@@ -84,33 +84,6 @@ public class Gwiazda extends Gwiazdozbior {
 
 
 
-//
-//import os
-//        import re
-//
-//        def zliczanie(dir_name):
-//        directory_names = [os.path.join(dir_name,name) for name in os.listdir(dir_name) if os.path.isdir(os.path.join(dir_name,name))]
-//        pattern = r"\d+"
-//        suma =0
-//
-//        for dirr_name in directory_names:
-//        file_names = [os.path.join(dirr_name,name) for name in os.listdir(dirr_name) if os.path.isfile(os.path.join(dirr_name,name))]
-//        ##print(file_names)
-//        p,k =os.path.split(dirr_name)
-//        print(k)
-//
-//        for file_name in file_names:
-//        p,k =os.path.split(file_name)
-//        with open(file_name) as f:
-//        l=f.read()
-//        txt = ''.join([str(elem) for elem in l])
-//
-//        matches = re.findall(pattern, txt)
-//        print(f"{k}: {len(matches)}")
-//        #matches =([int(el) for el in matches])
-//        suma += sum(map(int,matches))
-//        print()
-//        print(suma)
 
 
 
